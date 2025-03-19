@@ -1,1 +1,67 @@
+TASK 1
 
+/*CREATE DATABASE HMBank;*/
+use HMBank
+
+/*create table Customers
+(customer_id int primary key,
+first_name varchar(30),
+last_name varchar(30),
+DOB date,
+email varchar(30),
+phone_number bigint
+);*/
+
+/*alter table Customers add address varchar(50);*/
+
+create table Accounts
+(account_id int primary key,
+customer_id int,
+account_type varchar(20),
+balance decimal(15,3)
+foreign key (customer_id) references Customers(customer_id)
+);
+
+create table transactions
+(transaction_id int primary key,
+account_id int,
+transaction_type varchar(30),
+amount decimal(15,3),
+transaction_date date,
+Foreign key (account_id) references Accounts(account_id));
+
+INSERT INTO Customers VALUES 
+(1,'Arun', 'Sharma', '1992-07-10', 'arun.sharma@example.com', '9876543210', 'Delhi'),
+(2,'Rishi', 'Verma', '1989-05-15', 'rishi.verma@example.com', '8765432109', 'Mumbai'),
+(3,'Neha', 'Iyer', '1995-11-22', 'neha.iyer@example.com', '7654321098', 'Bangalore'),
+(4,'Amit', 'P', '1990-02-03', 'amit.patel@example.com', '6543210987', 'Ahmedabad'),
+(5,'Priya', 'Das', '1994-08-19', 'priya.das@example.com', '5432109876', 'Kolkata'),
+(6,'Siddharth', 'Rao', '1993-06-25', 'siddharth.rao@example.com', '4321098765', 'Hyderabad'),
+(7,'Ananya', 'G', '1996-03-30', 'ananya.gupta@example.com', '3210987654', 'Chennai'),
+(8,'Vikram', 'Singh', '1988-12-12', 'vikram.singh@example.com', '2109876543', 'Pune'),
+(9,'Sneha', 'Menon', '1991-04-27', 'sneha.menon@example.com', '1098765432', 'Kochi'),
+(10,'Rohan', 'J', '1997-01-18', 'rohan.joshi@example.com', '9988776655', 'Jaipur');
+
+INSERT INTO Accounts VALUES
+(2,1, 'savings', 25000.00),
+(4,2, 'current', 15000.50),
+(6,3, 'zero_balance', 0.00),
+(8,4, 'savings', 18000.75),
+(10,5, 'current', 32000.25),
+(12,6, 'savings', 7000.00),
+(14,7, 'current', 29000.00),
+(16,8, 'zero_balance', 0.00),
+(18,9, 'savings', 13500.90),
+(20,10, 'current', 45000.00);
+
+INSERT INTO transactions VALUES
+(3,2, 'deposit', 7000.00, '2024-03-01'),
+(6,4, 'withdrawal', 3500.50, '2024-03-02'),
+(9,6, 'deposit', 15000.00, '2024-03-03'),
+(12,8, 'withdrawal', 2200.75, '2024-03-04'),
+(15,10, 'deposit', 10000.25, '2024-03-05'),
+(18,12, 'withdrawal', 1200.00, '2024-03-06'),
+(21,14, 'transfer', 5500.00, '2024-03-07'),
+(24,16, 'deposit', 3000.00, '2024-03-08'),
+(27,18, 'withdrawal', 1200.90, '2024-03-09'),
+(30,20, 'transfer', 9000.00, '2024-03-10');
