@@ -1,1 +1,114 @@
+/*CREATE DATABASE TechShop;*/
+USE TechShop;
 
+/*CREATE TABLE Customers(
+CustomerID INT PRIMARY KEY,
+FirstName VARCHAR(30),
+LastName VARCHAR(30),
+Email VARCHAR(30),
+Phone bigInt,
+Address TEXT
+);*/
+
+/*CREATE TABLE Products(
+ProductID INT PRIMARY KEY,
+ProductName VARCHAR(30),
+Description TEXT,
+Price DECIMAL(10,2),
+);*/
+
+/*CREATE TABLE Orders(
+OrderID INT PRIMARY KEY,
+CustomerID INT,
+OrderDate DATETIME default GETDATE(),
+TotalAmount DECIMAL(10,2),
+FOREIGN KEY(CustomerID) references Customers(CustomerID),
+);*/
+
+/*CREATE TABLE OrderDetails(
+OrderDetailsID INT PRIMARY KEY,
+OrderID INT,
+ProductID INT,
+Quantity INT,
+FOREIGN KEY(OrderID) references Orders(OrderID),
+FOREIGN KEY(ProductID) references Products(ProductID),
+);*/
+
+/*CREATE TABLE Inventory(
+InventoryID INT PRIMARY KEY,
+ProductID INT,
+QualityInStock INT,
+LastStockUpdate DATETIME DEFAULT GETDATE(),
+FOREIGN KEY(ProductID) references Products(ProductID),
+);*/
+
+/*INSERT INTO Customers VALUES
+(1,'John','Smith','johnsmith@gmail.com',9876543210,'123 Main Streer'),
+(2,'David','Miller','davidmiller@gmail.com',6543210987,'777 Redwood Street'),
+(3,'William','Harris','williamharris@gmail.com',3210987654,'320 Oak Street'),
+(4,'Sofia','Wilson','sofia123@gmail.com',5432109876,'10 GA Street'),
+(5,'Olivia','Brown','oliviabrown@gmail.com',9988776655,'11 Maple Street'),
+(6,'George','Taylor','george02@gmail.com',2109876543,'128  WA Street'),
+(7,'Emma','Jackson','emmajack@gmail.com',1098765432,'111 Pine Street'),
+(8,'Daniel','Markson','daniel@gmail.com',4321098765,'5 cross Will Street'),
+(9,'Bob','Doe','bob03@gmail.com',7654321098,'Cedar garden'),
+(10,'Mike','Thomas','mike@gmail.com',4321098765,'Park garden');
+*/
+
+/*SELECT * FROM Customers;*/
+
+/*INSERT INTO Products VALUES
+(2,'Laptop','HP Pavilion', 50000.00),
+(4,'Mouse','Wireless Mouse',2500.00),
+(6,'Printer','HP LaserJet Pro',15000.00),
+(8,'Smartphone','iPhone 16',60000.00),
+(10,'Keyboard','Mechanical Keyboard',5000.00),
+(12,'Headphone','Noise Airwave Max 5',4999.00),
+(14,'Tablet','Lenova M11',18000.00),
+(16,'Gaming Console','Playstation 5',41000.99),
+(18,'SmartWatch','Apple Watch Series 7', 42000.00),
+(20,'Monitor','Samsung M8 40',10000.00);*/
+
+/*SELECT * FROM Products;*/
+
+/*INSERT INTO Orders VALUES
+(3,1,'2024-03-10 09:15:00',50000.00),
+(6,2,'2024-03-11 14:30:00',2500.00),
+(9,3,'2024-03-12 11:45:00',19500.00),
+(12,4,'2024-03-13 08:00:00',60000.00),
+(15,5,'2024-03-14 16:20:00',4999.00),
+(18,6,'2024-03-15 12:10:00',23000.00),
+(21,7,'2024-03-16 19:05:00',41000.99),
+(24,8,'2024-03-17 07:50:00',45000.00),
+(27,9,'2024-03-18 22:30:00', 12000.00),
+(30,10,'2024-03-19 15:40:00', 73000.00);*/
+
+/*SELECT * FROM Orders;*/
+
+/*INSERT INTO OrderDetails VALUES
+(5,3,2,1),
+(10,6,4,1),
+(15,9,6,2),
+(20,12,8,1),
+(25,15,10,1),
+(30,18,12,2),
+(35,21,14,1),
+(40,24,16,2),
+(45,27,18,2),
+(50,30,20,2);*/
+
+/*SELECT * FROM OrderDetails;*/
+
+/*INSERT INTO Inventory VALUES
+(4,2,50, '2024-03-01 10:00:00'),
+(8,4,200,'2024-03-02 12:30:00'),
+(12,6,30,'2024-03-03 15:45:00'),
+(16,8,40,'2024-03-04 08:20:00'),
+(20,10,100,'2024-03-05 09:10:00'),
+(24,12,80,'2024-03-06 14:50:00'),
+(28,14,25,'2024-03-07 18:00:00'),
+(32,16,15,'2024-03-08 20:10:00'),
+(36,18,60,'2024-03-09 11:25:00'),
+(40,20,35, '2024-03-10 16:40:00');*/
+
+SELECT * FROM Inventory;
