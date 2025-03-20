@@ -1,3 +1,5 @@
+--PROJECT MANAGEMENT SYSTEM
+
 --Create DATABASE ProjectManage;
 USE ProjectManage;
 
