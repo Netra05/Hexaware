@@ -1,0 +1,123 @@
+--Practise tasks
+--create database Employees;
+use Employees;
+
+--SCENARIO 1
+
+/*create table Employee
+(EmplyeeID int,
+Name VARCHAR(20),
+Department VARCHAR(20),
+Salary Decimal(10,2));*/
+
+/*Insert into Employee VALUES
+(1,'Sneha','HR',60000.00),
+(2,'Rohan','Finance',70000.00),
+(3,'Priya','IT',45000.00),
+(4,'Rithivik','Marketing',40000.00);*/
+
+--SELECT Name as 'Employee_name' from Employee where Salary>50000.00 and Department='HR';
+
+--SCENARIO 2
+/*Create table Orders
+(OrderID int,
+CustomerID int,
+OrderDate DATE,
+OrderAmount decimal(10,2));*/
+
+/*INSERT INTO Orders VALUES
+(1, 101, '2024-03-01', 250.00),
+(2, 102, '2024-03-02', 150.50),
+(3, 101, '2024-03-05', 300.75),
+(4, 103, '2024-03-07', 400.00),
+(5, 102, '2024-03-10', 220.25),
+(6, 104, '2024-03-12', 180.60);*/
+
+/*SELECT CustomerID FROM Orders  
+GROUP BY CustomerID  
+HAVING COUNT(*) > 1;*/
+
+--SCENARIO 3
+/*Create table Sales
+(SalesID int,
+ProductID int,
+Quantity int,
+SaleDate date);*/
+
+/*INSERT INTO Sales VALUES
+(1, 101, 5, '2024-03-01'),
+(2, 102, 3, '2024-03-02'),
+(3, 101, 2, '2024-03-03'),
+(4, 103, 7, '2024-03-04');*/
+
+/*SELECT ProductID, SUM(Quantity) AS TotalQuantitySold
+FROM Sales
+GROUP BY ProductID;*/
+ 
+--SCENARIO 4
+/*create table Transactions
+(TransactionID int,
+AccountID int,
+TransactionDate Datetime,
+Amount decimal(10,2));*/
+
+/*INSERT INTO Transactions VALUES
+(1, 1001, '2025-02-20 14:30:00', 500.00),
+(2, 1002, '2025-03-05 09:15:00', 200.50),
+(3, 1003, '2025-03-10 16:45:00', 750.75),
+(4, 1001, '2025-03-21 12:00:00', 300.00);*/
+
+/*SELECT * FROM Transactions
+WHERE TransactionDate >= DATEADD(DAY,-30, GETDATE());*/
+
+--SCENARIO 5
+/*create table Products(
+ProductsID int,
+ProductName varchar(30),
+Price decimal(10,2),
+StockQuantity int);*/
+
+/*INSERT INTO Products VALUES
+(1, 'Laptop', 50000, 50),
+(2, 'Mouse', 800, 200),
+(3, 'Keyboard', 1500, 80),
+(4, 'Monitor', 12000, 30);*/
+
+/*UPDATE Products  
+SET Price = Price * 1.10  
+WHERE StockQuantity < 100;*/
+
+--SCENARIO 6
+/*create table Users(
+UserID int,Username varchar(30),
+Email varchar(30),Status varchar(10));*/
+
+/*alter table Users add Login DATE;*/
+
+/*INSERT INTO Users VALUES
+(1, 'Alisha', 'alisha@gmail.com', 'active', '2025-02-15'),
+(2, 'Sam', 'sam123@gmail.com', 'inactive', '2024-01-10'),
+(3, 'Ram', 'ram@gmail.com', 'inactive', '2024-03-05'),
+(4, 'Karan', 'karan@GMAIL.com', 'active', '2025-03-10');*/
+
+/*DELETE FROM Users  
+WHERE Status = 'inactive'  
+AND LoginDate < DATEADD(YEAR, -1, GETDATE());*/
+
+--SCENARIO 9
+/*Create table Products1(
+ProductID int,
+ProductName varchar(10),
+Category varchar(10),
+Discount int);*/
+
+/*INSERT INTO Products1 VALUES  
+(1, 'Laptop', 'Electronic', 10),  
+(2, 'Tablet', 'Electronic', NULL),  
+(3, 'Chair', 'Furniture', 5),  
+(4, 'Desk', 'Furniture', NULL);  */
+
+/*SELECT ProductName,  
+       ISNULL(CAST(Discount AS VARCHAR), 'No Discount') AS Discount  
+FROM Products1;*/
+
