@@ -1,0 +1,139 @@
+--DDL COMMANDS
+--create database PRACTISE;
+use PRACTISE
+
+/*create table TRG_DEPT 
+(ID int,
+NAME VARCHAR(25));*/
+
+/*insert into TRG_DEPT values
+(101,'HR'),(102,'Sales'),(103,'Design'),(104,'IT'),(105,'Automation');*/
+
+/*create table DEPT101
+(DEPT_ID int,NAME varchar(25),LOCATION varchar(20));*/
+
+/*Insert into DEPT101(DEPT_ID,NAME) 
+select ID,NAME FROM TRG_DEPT;*/
+
+/*Select * from DEPT101;*/
+
+/*CREATE TABLE TRG_EMP (
+    ID INT PRIMARY KEY,
+    LAST_NAME VARCHAR(25) NOT NULL,
+    FIRST_NAME VARCHAR(25),
+    DEPT_ID INT
+);*/
+
+/*ALTER TABLE TRG_EMP ALTER COLUMN LAST_NAME VARCHAR(50);*/
+
+/*CREATE TABLE TRG_EMPLOYEES (
+    ID INT PRIMARY KEY,
+    FIRST_NAME VARCHAR(25),
+    LAST_NAME VARCHAR(50), 
+    SALARY BIGINT,
+    DEPT_ID INT
+);*/
+/*DROP TABLE TRG_EMP;*/
+
+/*exec sp_rename 'TRG_EMPLOYEES' , 'TRG_EMP';*/
+
+/*ALTER TABLE TRG_EMP DROP COLUMN FIRST_NAME;*/
+
+/*SELECT * FROM TRG_EMP;*/
+
+-----------------------------------------------------------------
+--BASIC SELECT
+
+/*create table EMP
+(EMPNO int NOT NULL,
+ENAME VARCHAR(10),
+JOB VARCHAR(9),
+MGR int,
+HIREDATE DATE,
+SAL BIGINT,
+COMM BIGINT,
+DEPTNO int NOT NULL);*/
+
+/*INSERT INTO EMP VALUES  
+(7839, 'KING', 'PRESIDENT', NULL, '17-NOV-81', 5000, NULL, 10),  
+(7698, 'BLAKE', 'MANAGER', 7839, '01-MAY-81', 2850, NULL, 30),  
+(7782, 'CLARK', 'MANAGER', 7839, '09-JUN-81', 2450, NULL, 10),  
+(7566, 'JONES', 'MANAGER', 7839, '02-APR-81', 2975, NULL, 20),  
+(7654, 'MARTIN', 'SALESMAN', 7698, '28-SEP-81', 1250, 1400, 30),  
+(7499, 'ALLEN', 'SALESMAN', 7698, '20-FEB-81', 1600, 300, 30),  
+(7844, 'TURNER', 'SALESMAN', 7698, '08-SEP-81', 1500, 0, 30),  
+(7900, 'JAMES', 'CLERK', 7698, '03-DEC-81', 950, NULL, 30),  
+(7521, 'WARD', 'SALESMAN', 7698, '22-FEB-81', 1250, 500, 30),  
+(7902, 'FORD', 'ANALYST', 7566, '03-DEC-81', 3000, NULL, 20),  
+(7369, 'SMITH', 'CLERK', 7902, '17-DEC-80', 800, NULL, 20),  
+(7788, 'SCOTT', 'ANALYST', 7566, '09-DEC-82', 3000, NULL, 20),  
+(7876, 'ADAMS', 'CLERK', 7788, '12-JAN-83', 1100, NULL, 20),  
+(7934, 'MILLER', 'CLERK', 7782, '23-JAN-82', 1300, NULL, 10);  */
+
+/*SELECT * FROM EMP;*/
+
+/*SELECT ENAME,JOB,SAL AS Sal from EMP;*/
+
+/*SELECT DISTINCT JOB FROM EMP;*/
+
+/*create table DEPT
+(DEPTNO int NOT null,
+DNAME varchar(14),
+LOC varchar(13));*/
+
+/*insert into DEPT values
+(10,'ACCOUNTING','NEW YORK'),
+(20,'RESEARCH','DALLAS'),
+(30,'SALES','CHICAGO'),
+(40,'OPERATIONS','BOSTON');*/
+
+/*SELECT EMPNO AS "EMP #",  
+       ENAME AS "Employee",  
+       JOB AS "Job Title",  
+       HIREDATE AS "Hire Date"  
+FROM EMP;*/
+-------------------------------------------------------------------
+--DML COMMANDS
+
+/*create table MY_EMPLOYEE(
+ID int not null,
+LAST_NAME varchar(25),
+FIRST_NAME varchar(25),
+USERID varchar(8),
+SALARY int);*/
+
+/*INSERT INTO MY_EMPLOYEE VALUES
+(1,'Patel','Ralph','rpatel',895),
+(2,'Dancs','Betty','bdancs',860);*/
+
+/*SELECT * FROM MY_EMPLOYEE;*/
+
+/*DELETE FROM MY_EMPLOYEE  
+WHERE LAST_NAME = 'Dancs' AND FIRST_NAME = 'Betty';*/
+
+/*TRUNCATE TABLE MY_EMPLOYEE;*/
+
+/*SELECT * FROM MY_EMPLOYEE;*/
+
+/*INSERT INTO MY_EMPLOYEE VALUES
+(1,'Patel','Ralph','rpatel',895),
+(2,'Dancs','Betty','bdancs',860);*/
+
+/*UPDATE MY_EMPLOYEE SET SALARY=1000 WHERE SALARY<900;*/
+
+/*DELETE FROM MY_EMPLOYEE  
+WHERE LAST_NAME = 'Dancs' AND FIRST_NAME = 'Betty';*/
+
+--SELECT * FROM MY_EMPLOYEE;
+-----------------------------------------------------------
+--TASK 3
+/*CREATE TABLE Customers (
+    CustomerID INT,
+    Age INT,
+    City VARCHAR(50)
+);*/
+
+--ALTER TABLE Customers ALTER COLUMN Age INT NOT NULL;
+
+--ALTER TABLE Customers ADD CONSTRAINT ChecK_Age CHECK (Age >= 18);
+
