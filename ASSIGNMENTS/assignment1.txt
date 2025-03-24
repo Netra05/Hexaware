@@ -114,3 +114,126 @@ FOREIGN KEY(ProductID) references Products(ProductID),
 (40,20,35, '2024-03-10 16:40:00');*/
 
 SELECT * FROM Inventory;
+
+TASK2
+
+--Q1
+--SELECT FirstName,LastName,Email from Customers;
+
+--Q2
+--SELECT OrderID, OrderDate, (SELECT FirstName FROM Customers WHERE CustomerID = Orders.CustomerID) AS CustomerName FROM Orders;
+
+--Q3
+/*insert into Customers VALUES
+(11,'Ram','Prakash','prakash@gmail.com',7654098765,'Lemon Park');*/
+
+--Q4
+--UPDATE Products SET Price = Price * 1.10;
+
+--Q5
+--DELETE FROM OrderDetails WHERE OrderID = 3;
+--DELETE FROM Orders WHERE OrderID = 5;
+
+--Q6
+--INSERT INTO Orders VALUES (35,1,'2024-03-21 16:40:00', 83000.00);
+
+--Q7
+/*UPDATE Customers
+SET Email = 'priya@gmail.com', Address = 'Town Park'
+WHERE CustomerID = 5;*/
+
+--Q8
+/*UPDATE Orders
+SET TotalAmount = (
+    SELECT SUM(p.Price * od.Quantity)
+    FROM OrderDetails od
+    JOIN Products p ON od.ProductID = p.ProductID
+    WHERE od.OrderID = Orders.OrderID
+);*/
+
+
+--Q9
+/*DELETE FROM OrderDetails WHERE OrderID IN (SELECT OrderID FROM Orders WHERE CustomerID = 6);
+DELETE FROM Orders WHERE CustomerID = 6;*/
+
+--Q10
+/*INSERT INTO Products VALUES
+(22,'Smartphone','Samsung Galaxy',50000.00);*/
+
+--Q11 (MISTAKE IN QUESTION)
+/*UPDATE Orders
+SET Status = 'Shipped'
+WHERE OrderID = 30;*/
+
+--Q12 (DOUBT)
+ --ALTER TABLE Customers ADD OrderCount INT DEFAULT 0;
+/*select * from Customers;
+UPDATE Customers
+SET OrderCount = (
+    SELECT COUNT(*)
+    FROM Orders
+    WHERE Orders.CustomerID = Customers.CustomerID
+);*/
+
+--TASK 3
+--Q1
+/*SELECT O.OrderID, O.OrderDate, O.TotalAmount, 
+       C.FirstName, C.LastName, C.Email, C.Phone
+FROM Orders O
+JOIN Customers C ON O.CustomerID = C.CustomerID;*/
+
+--Q2
+/*SELECT P.ProductName, SUM(P.Price * OD.Quantity) AS TotalRevenue
+FROM OrderDetails OD
+JOIN Products P ON OD.ProductID = P.ProductID
+GROUP BY P.ProductName
+ORDER BY TotalRevenue DESC;*/
+
+--Q3
+/*SELECT DISTINCT C.CustomerID, C.FirstName, C.LastName, C.Email, C.Phone
+FROM Customers C
+JOIN Orders O ON C.CustomerID = O.CustomerID;*/
+
+--Q4
+/*SELECT P.ProductName, SUM(OD.Quantity) AS TotalQuantityOrdered
+FROM OrderDetails OD
+JOIN Products P ON OD.ProductID = P.ProductID
+GROUP BY P.ProductName
+ORDER BY TotalQuantityOrdered DESC;*/
+
+--Q5
+/*SELECT ProductName, Description
+FROM Products;
+*/
+
+--Q6
+/*SELECT C.CustomerID, C.FirstName, C.LastName, AVG(O.TotalAmount) AS AvgOrderValue
+FROM Customers C
+JOIN Orders O ON C.CustomerID = O.CustomerID
+GROUP BY C.CustomerID, C.FirstName, C.LastName;*/
+
+--Q7
+/*SELECT O.OrderID, O.TotalAmount, C.FirstName, C.LastName, C.Email
+FROM Orders O
+JOIN Customers C ON O.CustomerID = C.CustomerID
+ORDER BY O.TotalAmount DESC;*/
+
+--Q8
+/*SELECT P.ProductName, COUNT(OD.OrderID) AS TimesOrdered
+FROM OrderDetails OD
+JOIN Products P ON OD.ProductID = P.ProductID
+GROUP BY P.ProductName
+ORDER BY TimesOrdered DESC;*/
+
+--Q9
+/*SELECT DISTINCT C.CustomerID, C.FirstName, C.LastName, C.Email, C.Phone
+FROM Customers C
+JOIN Orders O ON C.CustomerID = O.CustomerID
+JOIN OrderDetails OD ON O.OrderID = OD.OrderID
+JOIN Products P ON OD.ProductID = P.ProductID
+WHERE P.ProductName = 'Monitor';  */
+
+--Q10
+/*SELECT SUM(TotalAmount) AS TotalRevenue
+FROM Orders
+WHERE OrderDate BETWEEN '2024-03-01' AND '2024-03-31'; */
