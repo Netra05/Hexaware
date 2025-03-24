@@ -1,4 +1,4 @@
-TASK 1
+TASK 1 (TABLE CREATION AND INSERTING VALUES)
 
 /*CREATE DATABASE TechShop;*/
 USE TechShop;
@@ -115,7 +115,7 @@ FOREIGN KEY(ProductID) references Products(ProductID),
 
 SELECT * FROM Inventory;
 
-TASK2
+TASK2 (SELECT,WHERE,BETWEEN,AND,LIKE)
 
 --Q1
 --SELECT FirstName,LastName,Email from Customers;
@@ -175,7 +175,7 @@ SET OrderCount = (
     WHERE Orders.CustomerID = Customers.CustomerID
 );*/
 
---TASK 3
+--TASK 3 (AGGREGATE FUNCTIONS,HAVING,ORDER BY,GROUP BY,JOINS)
 --Q1
 /*SELECT O.OrderID, O.OrderDate, O.TotalAmount, 
        C.FirstName, C.LastName, C.Email, C.Phone
