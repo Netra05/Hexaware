@@ -1,7 +1,5 @@
-TASK 1 (TABLE CREATION AND INSERTING VALUES)
-
-/*CREATE DATABASE TechShop;*/
 USE TechShop;
+--TASK 1
 
 /*CREATE TABLE Customers(
 CustomerID INT PRIMARY KEY,
@@ -113,9 +111,9 @@ FOREIGN KEY(ProductID) references Products(ProductID),
 (36,18,60,'2024-03-09 11:25:00'),
 (40,20,35, '2024-03-10 16:40:00');*/
 
-SELECT * FROM Inventory;
+/*SELECT * FROM Inventory;*/
 
-TASK2 (SELECT,WHERE,BETWEEN,AND,LIKE)
+--TASK2
 
 --Q1
 --SELECT FirstName,LastName,Email from Customers;
@@ -175,7 +173,7 @@ SET OrderCount = (
     WHERE Orders.CustomerID = Customers.CustomerID
 );*/
 
---TASK 3 (AGGREGATE FUNCTIONS,HAVING,ORDER BY,GROUP BY,JOINS)
+--TASK 3
 --Q1
 /*SELECT O.OrderID, O.OrderDate, O.TotalAmount, 
        C.FirstName, C.LastName, C.Email, C.Phone
@@ -237,3 +235,84 @@ WHERE P.ProductName = 'Monitor';  */
 /*SELECT SUM(TotalAmount) AS TotalRevenue
 FROM Orders
 WHERE OrderDate BETWEEN '2024-03-01' AND '2024-03-31'; */
+
+
+--TASK 4 (SUBQUERY AND ITS TYPE)
+
+--Q1
+/*Select c.CustomerID,c.FirstName from Customers c where c.CustomerID NOT IN 
+(SELECT DISTINCT CustomerID from Orders);
+*/
+
+--Q2
+--SELECT COUNT(*) as total_products from Products;
+
+--Q3
+/*SELECT SUM(od.Quantity*p.Price) AS total_revenue FROM OrderDetails od
+JOIN Products p ON od.ProductID=p.ProductID;
+*/
+
+--Q4
+
+--ALTER TABLE Products ADD Category VARCHAR(50);
+
+/*UPDATE Products 
+SET Category = 'Electronics' 
+WHERE ProductID IN (2, 4, 6, 8, 10, 12, 14, 16, 18, 20);*/
+
+/*SELECT AVG(od.Quantity) AS avg_quantity_ordered
+FROM OrderDetails od
+JOIN Products p ON od.ProductID = p.ProductID
+WHERE p.Category = 'Laptops';
+*/
+
+--Q5
+/*SELECT SUM(o.TotalAmount) AS total_revenue
+FROM Orders o
+WHERE o.CustomerID = 3;
+*/
+
+--Q6
+/*SELECT c.FirstName, c.LastName, COUNT(o.OrderID) AS order_count
+FROM Orders o
+JOIN Customers c ON o.CustomerID = c.CustomerID
+GROUP BY c.CustomerID, c.FirstName, c.LastName
+ORDER BY order_count DESC;*/
+
+--Q7
+/*SELECT p.Category, SUM(od.Quantity) AS total_quantity_ordered
+FROM OrderDetails od
+JOIN Products p ON od.ProductID = p.ProductID
+GROUP BY p.Category
+ORDER BY total_quantity_ordered DESC;
+*/
+
+--Q8
+SELECT c.FirstName, c.LastName, SUM(o.TotalAmount) AS total_spent
+FROM Orders o
+JOIN Customers c ON o.CustomerID = c.CustomerID
+JOIN OrderDetails od ON o.OrderID = od.OrderID
+JOIN Products p ON od.ProductID = p.ProductID
+WHERE p.ProductName IN ('Laptop', 'Smartphone', 'Tablet', 'Gaming Console', 'SmartWatch')
+GROUP BY c.CustomerID, c.FirstName, c.LastName
+ORDER BY total_spent DESC;
+
+--Q9
+SELECT AVG(TotalAmount) AS avg_order_value
+FROM Orders;
+
+--Q10
+SELECT c.FirstName, c.LastName, COUNT(o.OrderID) AS order_count
+FROM Orders o
+JOIN Customers c ON o.CustomerID = c.CustomerID
+GROUP BY c.CustomerID, c.FirstName, c.LastName
+ORDER BY order_count DESC;
+
+
+
+
+
+
+
+
+
