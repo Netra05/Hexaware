@@ -127,7 +127,12 @@ FOREIGN KEY(product_id) REFERENCES Products1(product_id));*/
 --Q7
 --Select * from cart where customer_id=5;
 
---Q8 (JOINS)
+--Q8 
+SELECT DISTINCT c.customer_ID, c.firstName, c.lastName, c.Email 
+FROM Customers1 c
+JOIN Order1 o ON c.customer_ID = o.customer_id
+WHERE YEAR(o.order_date) = 2023;
+
 
 --Q9
 --select MIN(stockQuantity) from Products1;
@@ -147,4 +152,27 @@ FOREIGN KEY(product_id) REFERENCES Products1(product_id));*/
 --Q14
 --select customer_id from Order1 group by customer_id HAVING SUM(total_price)>1000;
 
-Q15,16,17,18 subquery
+--Q15
+SELECT * FROM Products1 
+WHERE product_id NOT IN (SELECT DISTINCT product_id FROM cart);
+
+--Q16
+SELECT * FROM Customers1 
+WHERE customer_ID NOT IN (SELECT DISTINCT customer_id FROM Order1);
+
+--Q17
+SELECT p.product_id, p.name, 
+       (SUM(oi.itemAmount) * 100.0) / (SELECT SUM(itemAmount) FROM order_items) AS revenue_percentage
+FROM order_items oi
+JOIN Products1 p ON oi.product_id = p.product_id
+GROUP BY p.product_id, p.name;
+
+--Q18
+SELECT * FROM Products1 
+WHERE stockQuantity <= (SELECT AVG(stockQuantity) FROM Products1);
+
+--Q19
+SELECT DISTINCT c.customer_ID, c.firstName, c.lastName, c.Email 
+FROM Customers1 c
+JOIN Order1 o ON c.customer_ID = o.customer_id
+WHERE o.total_price > (SELECT AVG(total_price) FROM Order1);
