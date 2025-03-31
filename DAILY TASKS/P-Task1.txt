@@ -1,0 +1,73 @@
+#Q1 convert celsius to fahrenheit
+
+celsius=float(input("Enter the celsius value: "))
+fahrenheit=(celsius*9/5)+32
+print("Temperature in fahrenheit %.2f" %fahrenheit)
+
+
+#Q2 AREA OF CUBE
+
+side=float(input("Enter the side length: "))
+area=6*side*side
+print("Area of cube is %.2f" %area)
+
+
+#Q3 AREA OF CYCLINDER
+
+import math
+
+radius = float(input("Enter the radius of the cylinder: "))
+height = float(input("Enter the height of the cylinder: "))
+area = 2 * math.pi * radius * (radius + height)
+print(f"Surface area of the cylinder: {area}")
+
+#Q4 HEX,OCTAL AND SQUARE ROOT
+
+import math
+num = int(input("Enter a number: "))
+print("Hex:", hex(num))
+print("Oct:", oct(num))
+print("Square root:", math.sqrt(num))
+
+
+#Q5 EXTRACT ONE'S PLACE DIGIT
+
+num = int(input("Enter a number: "))
+print("One's place:", num % 10)
+
+
+#Q6 MEMORY LOCATION
+
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+
+print("ID of a:", id(a))
+print("ID of b:", id(b))
+print("Same memory:", a is b)
+
+
+#Q7VOLUME OF SPHERE
+
+import math
+
+r = float(input("Enter radius: "))
+print("Volume:", (4/3) * math.pi * r**3)
+
+
+#Q8 SIMPLE INTEREST
+
+p = float(input("Enter principal: "))
+r = float(input("Enter rate: "))
+t = float(input("Enter time: "))
+
+print("Total payable:", p + (p * r * t / 100))
+
+
+#Q9 COMPOUND INTEREST
+p = float(input("Enter principal: "))
+r = float(input("Enter rate: "))
+t = float(input("Enter time: "))
+n = int(input("Enter times compounded per year: "))
+
+print("Total payable:", p * (1 + r / (100 * n)) ** (n * t))
+
