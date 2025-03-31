@@ -1,0 +1,137 @@
+#Q1 TAX CALCULATION
+
+income = float(input("Enter your income: "))
+
+if income <= 150000:
+    tax = 0
+elif income <= 300000:
+    tax = 0.1 * (income - 150000)
+elif income <= 500000:
+    tax = 15000 + 0.2 * (income - 300000)
+else:
+    tax = 55000 + 0.3 * (income - 500000)
+
+print("Total tax", tax)
+
+#Q2 ROOTS OF QUADRATIC EQUATION
+import math
+
+a = float(input("Enter a: "))
+b = float(input("Enter b: "))
+c = float(input("Enter c: "))
+
+d = b**2 - 4*a*c  # Discriminant
+
+if d > 0:
+    root1 = (-b + math.sqrt(d)) / (2*a)
+    root2 = (-b - math.sqrt(d)) / (2*a)
+    print("Real roots:", root1, root2)
+elif d == 0:
+    root = -b / (2*a)
+    print("Equal roots:", root)
+else:
+    print("Imaginary roots")
+
+#Q3 MARKS,AVG AND GRADE
+m1=float(input("Enter mark 1: "))
+m2=float(input("Enter mark 2: "))
+m3=float(input("Enter mark 3: "))
+total=m1+m2+m3
+avg=(m1+m2+m3)/3
+if(total>=80):
+    print("GRADE A")
+elif(total>=70 and total<=79):
+    print("GRADE B")
+elif(total>=60 and total<=69):
+    print("GRADE C")
+else:
+    print("FAIL")
+print("Total Marks is: ",total)
+print("Average is: ",avg)
+
+#Q4 EMPLOYEE BONUS
+salary = float(input("Enter salary: "))
+service = int(input("Enter years of service: "))
+
+if service >= 10:
+    bonus = 0.1 * salary
+elif service >= 5:
+    bonus = 0.05 * salary
+elif service >= 3:
+    bonus = 0.03 * salary
+else:
+    bonus = 0
+
+print("Bonus:", bonus, "Total Salary:", salary + bonus)
+
+#Q5 ARITHMETIC OPERATORS
+a=int(input("Enter a value for a: "))
+b=int(input("Enter a value for b: "))
+op=input("Enter operator (+,-,/,*): ")
+match op:
+    case "+":
+        print("Sum: ",a+b)
+    case "-":
+        print("Difference: ",a-b)
+    case "*":
+        print("Multiplication: ",a*b)
+    case "/":
+        print("Division: ",a/b)
+
+#Q6 FIND AREA
+import math
+
+choice = int(input("1: Circle, 2: Triangle, 3: Rectangle\nEnter choice: "))
+
+if choice == 1:
+    r = float(input("Enter radius: "))
+    print("Area:", math.pi * r * r)
+elif choice == 2:
+    a = float(input("Enter side 1: "))
+    b = float(input("Enter side 2: "))
+    c = float(input("Enter side 3: "))
+    s = (a + b + c) / 2
+    print("Area:", math.sqrt(s * (s - a) * (s - b) * (s - c)))
+elif choice == 3:
+    l = float(input("Enter length: "))
+    w = float(input("Enter width: "))
+    print("Area:", l * w)
+else:
+    print("Invalid choice")
+
+#Q7 SUM OF NUMBERS FROM M TO N
+m=int(input("Enter a number: "))
+n=int(input("Enter a number: "))
+print("Sum: ",sum(range(m,n+1)))
+
+#Q8 ARMSTRONG NUMBER
+num = int(input("Enter number: "))
+
+sum_of_cubes = 0
+temp = num
+
+while temp > 0:
+    digit = temp % 10
+    sum_of_cubes += digit ** 3
+    temp //= 10
+
+if num == sum_of_cubes:
+    print("Armstrong number")
+else:
+    print("Not an Armstrong number")
+
+#Q9 DEC TO BINARY
+n=int(input("Enter a number: "))
+print("Binary: ",format(n,'b'))
+
+#Q10 PALINDROME
+num = input("Enter a number: ")
+rev = ""
+for digit in num:
+    rev = digit + rev
+
+if num == rev:
+    print("Palindrome")
+else:
+    print("Not a palindrome")
+
