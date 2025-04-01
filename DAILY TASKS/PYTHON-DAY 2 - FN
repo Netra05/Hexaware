@@ -1,0 +1,84 @@
+#Q1 STAR PATTERN
+
+for i in range(5,0,-1):
+    print("* "*i)
+
+#Q2 NUMBER PATTERN
+for i in range (5,0,-1):
+    for j in range(1,i+1):
+        print(j,end=" ")
+    print()
+
+#Q3 NUMBER TRIANGLE
+for i in range(1, 6):
+    for j in range(1, i):
+        print(j, end=" ")
+    if i > 1:
+        print(2, end=" ")
+    print()
+
+#Q4 REVERSE REPEAT
+for i in range(5, 0, -1):
+    print((str(i) + " ") * i)
+
+#Q5
+num = 1
+for i in range(1, 5):
+    for j in range(i):
+        print(num, end=" ")
+        num += 1
+    print()
+
+#Q6 SUM OF EVEN AND ODD
+even=odd=0
+for i in range(10):
+    n=int(input("Enter a number: "))
+    if n%2==0:
+        even+=n
+    else:
+        odd+=n
+print("Sum of even numbers: ",even)
+print("Sum of odd numbers: ",odd)
+
+#Q7 FIBONACCI
+n = int(input("Enter the no. of terms: "))
+a, b = 0, 1
+for i in range(n):
+    print(a, end=" ")
+    a, b = b, a + b
+
+#Q8 CALCULATOR
+while True:
+    print("1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Exit")
+    choice = int(input("Enter choice: "))
+
+    if choice == 5:
+        break
+
+    a = float(input("Enter first number: "))
+    b = float(input("Enter second number: "))
+
+    if choice == 1:
+        print("Result:", a + b)
+    elif choice == 2:
+        print("Result:", a - b)
+    elif choice == 3:
+        print("Result:", a * b)
+    elif choice == 4:
+        if b == 0:
+            print("Cannot divide by zero")
+        else:
+            print("Result:", a / b)
+    else:
+        print("Invalid choice")
+
+
+#Q9 PALINDROME
+s = input("Enter a string: ")
+rev = ""
+for i in s:
+    rev = i + rev
+if s == rev:
+    print("Palindrome")
+else:
+    print("Not a palindrome")
